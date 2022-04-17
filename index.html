@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | E-commerce product page</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.google.com/specimen/Kumbh+Sans"
+    />
+    <script src="index.js"></script>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navigationBar">
+      <img src="./images/logo.svg" alt="" />
+
+      <ul>
+        <li><a href="">Collections</a></li>
+        <li><a href="">Men</a></li>
+        <li><a href="">Women</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Contact</a></li>
+      </ul>
+      <img
+        class="cart"
+        onclick="cartbox()"
+        style="cursor: pointer"
+        src="../images/icon-cart.svg"
+        alt="shopping cart"
+      />
+      <h6 class="displaynone" id="cart-amount"></h6>
+      <img class="avatar" src="../images/image-avatar.png" alt="profile" />
+      <hr style="color: hsl(230, 29%, 92%)" />
+      <div class="displaynone" id="show-cart">
+        <div style="padding: 10px"><h5 style="margin: 0">Cart</h5></div>
+        <hr style="color: hsl(230, 29%, 92%)" />
+        <div style="padding: 10px">
+          <div id="cart" style="margin: 10px">
+            <p id="empty-cart" style="text-align: center">
+              Your cart is empty.
+            </p>
+            <div
+              class="displaynone"
+              id="item-in-cart"
+              style="justify-content: left; height: fit-content"
+            >
+              <img
+                style="
+                  width: 40px;
+                  height: 40px;
+                  border-radius: 3px;
+                  display: inline;
+                  position: relative;
+                  bottom: 5px;
+                "
+                src="../images/image-product-1-thumbnail.jpg"
+                alt="product img"
+              />
+              <div
+                style="
+                  width: 150px;
+                  display: inline-block;
+                  position: relative;
+                  bottom: 10px;
+                "
+              >
+                <p
+                  style="
+                    font-size: 11px;
+                    color: hsl(220, 14%, 75%);
+                    margin: 0px;
+                    position: relative;
+                  "
+                >
+                  Fall Limited Edition Sneakers
+                </p>
+                <p class="item">$125.00 x</p>
+                <p id="item-amount" class="item">amount</p>
+                <p
+                  id="total"
+                  style="
+                    display: inline-block;
+                    position: relative;
+                    margin: 0px;
+                    font-size: 11px;
+                    font-weight: bolder;
+                  "
+                >
+                  $total
+                </p>
+                <img
+                  onclick="deleteitem()"
+                  style="
+                    cursor: pointer;
+                    width: 10px;
+                    height: 15px;
+                    position: relative;
+                    bottom: 5px;
+                    left: 70px;
+                  "
+                  src="../images/icon-delete.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <button class="displaynone button" id="checkout">Checkout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="big">
+      <div class="containerimg">
+        <!-- style="display:flex;justify-content:center;align-items: center;" -->
+        <div
+          style="display: flex; justify-content: center; align-items: center"
+        >
+          <img
+            class="bigimg"
+            id="big-img"
+            src="../images/image-product-1.jpg"
+            alt="product 1 image"
+          />
+        </div>
+
+        <div style="display: flex; justify-content: center">
+          <!-- thumbnails -->
+          <img
+            onclick="changeimg(thumb1)"
+            id="thumb1"
+            class="thumbnailimg"
+            src="../images/image-product-1-thumbnail.jpg"
+            alt=""
+          />
+          <img
+            onclick="changeimg(thumb2)"
+            id="thumb2"
+            class="thumbnailimg"
+            src="../images/image-product-2-thumbnail.jpg"
+            alt=""
+          />
+          <img
+            onclick="changeimg(thumb3)"
+            id="thumb3"
+            class="thumbnailimg"
+            src="../images/image-product-3-thumbnail.jpg"
+            alt=""
+          />
+          <img
+            onclick="changeimg(thumb4)"
+            id="thumb4"
+            class="thumbnailimg"
+            src="../images/image-product-4-thumbnail.jpg"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <!-- container text -->
+      <div class="containertxt">
+        <h5 style="color: hsl(26, 100%, 55%)">SNEAKER COMPANY</h5>
+        <h1 style="color: hsl(220, 13%, 13%)" id="shoes-name">
+          Fall Limited Edition<br />Sneakers
+        </h1>
+        <p
+          style="font-size: 16px; text-align: justify; color: hsl(219, 9%, 45%)"
+        >
+          These low-profile sneakers are your perfect casual wear companion.
+          Featuring a durable rubber outer sole, they’ll withstand everything
+          the weather can offer.
+        </p>
+        <h3 class="price" id="shoes-price">$125.00</h3>
+        <div class="discountbox"><h6 class="discount">50%</h6></div>
+        <h6 class="pricebefore">$250.00</h6>
+        <div style="display: flex" ;>
+          <div class="changeAmount">
+            <button class="minus" onclick="removeOne()">
+              <img src="../images/icon-minus.svg" alt="minus" />
+            </button>
+            <h5 class="amount" id="amount" style="color: hsl(220, 13%, 13%)">
+              0
+            </h5>
+
+            <button class="plus" onclick="addOne()">
+              <img src="../images/icon-plus.svg" alt="plus" />
+            </button>
+          </div>
+          <button class="addToCart" onclick="addToCart()">
+            <img
+              style="
+                filter: brightness(300%);
+                margin-right: 20px;
+                width: 15px;
+                height: 15px;
+              "
+              src="../images/icon-cart.svg"
+              alt="profile"
+            />Add to cart
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">DANAH</a>.
+    </div>
+  </body>
+</html>
